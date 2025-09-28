@@ -4,7 +4,7 @@ import { useTunnels } from "../../context/tunnels";
 import { useUIAppState } from "../../context/ui-appState";
 import { t, useI18n } from "../../i18n";
 import { useDevice, useExcalidrawActionManager } from "../App";
-import { ExcalidrawLogo } from "../ExcalidrawLogo";
+import { MasarLogo } from "../MasarLogo";
 import { HelpIcon, LoadIcon, usersIcon } from "../icons";
 
 import type { JSX } from "react";
@@ -96,7 +96,7 @@ const Center = ({ children }: { children?: React.ReactNode }) => {
         {children || (
           <>
             <Logo />
-            <Heading>{t("welcomeScreen.defaults.center_heading")}</Heading>
+            <Heading>Welcome to Masar</Heading>
             <Menu>
               <MenuItemLoadScene />
               <MenuItemHelp />
@@ -112,7 +112,7 @@ Center.displayName = "Center";
 const Logo = ({ children }: { children?: React.ReactNode }) => {
   return (
     <div className="welcome-screen-center__logo excalifont welcome-screen-decor">
-      {children || <ExcalidrawLogo withText />}
+      {children || <MasarLogo withText />}
     </div>
   );
 };

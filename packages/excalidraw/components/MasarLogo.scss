@@ -1,0 +1,36 @@
+.MasarLogo {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+
+  &.is-xs {
+    font-size: 0.75rem;
+  }
+
+  &.is-small {
+    font-size: 1rem;
+  }
+
+  &.is-normal {
+    font-size: 1.25rem;
+  }
+
+  &.is-large {
+    font-size: 1.5rem;
+  }
+
+  &.is-custom {
+    font-size: inherit;
+  }
+
+  &-icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+
+  &-text {
+    height: 1em;
+    flex-shrink: 0;
+  }
+}
