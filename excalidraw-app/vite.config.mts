@@ -79,6 +79,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: "build",
+      chunkSizeWarningLimit: 1000, // Increase warning limit to 1MB
       rollupOptions: {
         output: {
           assetFileNames(chunkInfo) {
@@ -94,6 +95,17 @@ export default defineConfig(({ mode }) => {
           // app precache. en.json and percentages.json are needed for first load
           // or fallback hence not clubbing with locales so first load followed by offline mode works fine. This is how CRA used to work too.
           manualChunks(id) {
+            // Split vendor libraries into separate chunks
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'react-vendor';
+              }
+              if (id.includes('@excalidraw')) {
+                return 'excalidraw-vendor';
+              }
+              return 'vendor';
+            }
+            
             if (
               id.includes("packages/excalidraw/locales") &&
               id.match(/en.json|percentages.json/) === null
@@ -140,6 +152,7 @@ export default defineConfig(({ mode }) => {
         },
 
         workbox: {
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB
           // don't precache fonts, locales and separate chunks
           globIgnores: [
             "fonts.css",
@@ -198,10 +211,10 @@ export default defineConfig(({ mode }) => {
           ],
         },
         manifest: {
-          short_name: "Excalidraw",
-          name: "Excalidraw",
+          short_name: "Masar",
+          name: "Masar",
           description:
-            "Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
+            "Masar is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
           icons: [
             {
               src: "android-chrome-192x192.png",
@@ -225,7 +238,7 @@ export default defineConfig(({ mode }) => {
             },
           ],
           start_url: "/",
-          id: "excalidraw",
+          id: "masar",
           display: "standalone",
           theme_color: "#121212",
           background_color: "#ffffff",
