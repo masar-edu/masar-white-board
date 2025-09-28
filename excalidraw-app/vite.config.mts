@@ -79,6 +79,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: "build",
+      chunkSizeWarningLimit: 1000, // Increased chunk size warning limit
       rollupOptions: {
         output: {
           assetFileNames(chunkInfo) {
