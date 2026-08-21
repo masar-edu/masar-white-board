@@ -13,10 +13,10 @@
     "typescript": "^5"
   },
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
+    "start": "node init && vite",
+    "build": "node init && vite build",
     "preview": "vite preview --port 5002",
-    "build:preview": "yarn build && yarn preview",
-    "build:packages": "yarn --cwd ../../ build:packages"
+    "build:preview": "node init && yarn build && yarn preview",
+    "build:packages": "node init && yarn --cwd ../../ build:packages"
   }
 }
