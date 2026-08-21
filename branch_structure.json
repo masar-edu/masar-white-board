@@ -1,0 +1,33 @@
+{
+  "default_branch": "master",
+  "branches": [
+    "aakansha-better-db-click",
+    "aakansha-fix",
+    "aakansha-font",
+    "aakansha-footer",
+    "aakansha-hide-close-linear-element-points",
+    "aakansha-i18n",
+    "master",
+    "origin"
+  ],
+  "parent": {
+    "aakansha-better-db-click": "master",
+    "aakansha-fix": "master",
+    "aakansha-font": "master",
+    "aakansha-footer": "master",
+    "aakansha-hide-close-linear-element-points": "master",
+    "aakansha-i18n": "master",
+    "master": null,
+    "origin": "master"
+  },
+  "order": [
+    "master",
+    "aakansha-better-db-click",
+    "aakansha-fix",
+    "aakansha-font",
+    "aakansha-footer",
+    "aakansha-hide-close-linear-element-points",
+    "aakansha-i18n",
+    "origin"
+  ]
+}
